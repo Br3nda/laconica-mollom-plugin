@@ -875,14 +875,14 @@ EOD;
       $error = $this->xmlrpc_error();
       return ($error != NULL ? $error->code : NULL);
     }
-
-/**
- * Returns the last XML-RPC client error message
- */
-function xmlrpc_error_msg() {
-  $error = xmlrpc_error();
-  return ($error != NULL ? $error->message : NULL);
-}
+    
+    /**
+    * Returns the last XML-RPC client error message
+    */
+    function xmlrpc_error_msg() {
+      $error = xmlrpc_error();
+      return ($error != NULL ? $error->message : NULL);
+    }
 
   /**
   * Clears any previous error.
