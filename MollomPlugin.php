@@ -2,7 +2,7 @@
 /**
  * Laconica, the distributed open-source microblogging tool
  *
- * Plugin to check submitted notices with blogspam.net
+ * Plugin to check submitted notices with Mollom
  *
  * PHP version 5
  *
