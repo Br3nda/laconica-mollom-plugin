@@ -129,14 +129,12 @@ class MollomPlugin extends Plugin
       $servers = common_config('mollom', 'servers');
     
       if ($servers == NULL) {
-        error_log("No server - getting list");
         // Retrieve a list of valid Mollom servers from mollom.com:
         $servers = $this->xmlrpc('http://xmlrpc.mollom.com/'. MOLLOM_API_VERSION, 'mollom.getServerList', $this->authentication());
         
         // Store the list of servers in the database:
     // TODO!    variable_set('mollom_servers', $servers);
       }
-      error_log("Servers = " . print_r($servers, 1));
       
       if (is_array($servers)) {
         // Send the request to the first server, if that fails, try the other servers in the list:
