@@ -117,6 +117,12 @@ class MollomPlugin extends Plugin
       * Mollom.
       */
     function mollom($method, $data = array()) {
+        if (!extension_loaded('xmlrpc')) {
+            if (!dl('xmlrpc.so')) {
+                common_log(LOG_ERR, "Can't pingback; xmlrpc extension not available.");
+            }
+        }
+    
       // Construct the server URL:
       $public_key = common_config('mollom', 'public_key');
       error_log("Pub key = $public_key");
