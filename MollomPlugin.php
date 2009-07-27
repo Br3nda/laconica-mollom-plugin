@@ -117,14 +117,6 @@ class MollomPlugin extends Plugin
       * Mollom.
       */
     function mollom($method, $data = array()) {
-    
-    //  $mock['spam'] = MOLLOM_ANALYSIS_UNSURE;
-    //  $mock['url'] = 'http://example.com';
-    //  return $mock;
-      
-    //  $mock = FALSE;
-    //  return $mock;
-      
       // Construct the server URL:
       $public_key = common_config('mollom', 'public_key');
       error_log("Pub key = $public_key");
