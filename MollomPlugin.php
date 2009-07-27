@@ -125,7 +125,6 @@ class MollomPlugin extends Plugin
     
       // Construct the server URL:
       $public_key = common_config('mollom', 'public_key');
-      error_log("Pub key = $public_key");
       // Retrieve the list of Mollom servers from the database:
       $servers = common_config('mollom', 'servers');
     
