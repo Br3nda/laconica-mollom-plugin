@@ -1,0 +1,14 @@
+1) create an account and get keys from http://mollom.com
+
+2) Place MollomPlugin.php in laconica/local
+
+3) Add the following to your laconica/config.php
+
+	addPlugin('Mollom');
+
+	$config['mollom']['public_key'] = '';
+	$config['mollom']['private_key'] = '';
+
+
+
+
