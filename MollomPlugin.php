@@ -849,19 +849,19 @@ EOD;
       $xmlrpc_request = $this->xmlrpc_request($method, $args);
       $result = $this->http_request($url, array("Content-Type" => "text/xml"), 'POST', $xmlrpc_request->xml);
       if ($result->code != 200) {
-        xmlrpc_error($result->code, $result->error);
+        $this->xmlrpc_error($result->code, $result->error);
         return FALSE;
       }
       $message = $this->xmlrpc_message($result->data);
       // Now parse what we've got back
       if (!$this->xmlrpc_message_parse($message)) {
         // XML error
-        xmlrpc_error(-32700, t('Parse error. Not well formed'));
+        $this->xmlrpc_error(-32700, t('Parse error. Not well formed'));
         return FALSE;
       }
       // Is the message a fault?
       if ($message->messagetype == 'fault') {
-        xmlrpc_error($message->fault_code, $message->fault_string);
+        $this->xmlrpc_error($message->fault_code, $message->fault_string);
         return FALSE;
       }
       // Message must be OK
